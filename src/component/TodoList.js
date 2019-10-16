@@ -43,11 +43,16 @@ function TodoList() {
 
         <input type="submit" value="Add" />
       </form>
+
       <table>
         <tbody>
           <tr>
-            <td>Date</td>
-            <td>Description</td>
+            <td>
+              <b>Date</b>
+            </td>
+            <td>
+              <b>Description</b>
+            </td>
           </tr>
           {todosList}
         </tbody>
