@@ -17,9 +17,9 @@ function TodoList() {
     setDesckstate([""]);
   };
 
-  const onPressed = buttonId => {
-    const items = todos.filter(i => i.id !== buttonId);
-    setTodos(items);
+  const handleDelete = buttonId => {
+    const filtered = todos.filter((todo, i) => i !== buttonId);
+    setTodos(filtered);
   };
 
   const todosList = todos.map((input, index) => (
@@ -27,7 +27,7 @@ function TodoList() {
       <td>{input.date}</td>
       <td>{input.desc}</td>
       <td>
-        <button onClick={onPressed}>Delete</button>
+        <button onClick={() => handleDelete(index)}>Delete</button>
       </td>
     </tr>
   ));
