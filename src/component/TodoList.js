@@ -4,9 +4,15 @@ function TodoList() {
   const [desc, setDesc] = useState("");
   const [todos, setTodos] = useState([]);
 
-  const addTodo = () => {};
+  const inputChanged = event => {
+    setDesc(event.target.value);
+  };
 
-  const inputChanged = () => {};
+  const addTodo = event => {
+    event.preventDefault();
+    setTodos([...todos, desc]);
+  };
+
   return (
     <form onSubmit={addTodo}>
       <input type="text" onChange={inputChanged} value={desc} />
