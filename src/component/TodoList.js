@@ -17,15 +17,18 @@ function TodoList() {
     setDesckstate([""]);
   };
 
-  const onPressed = index => {
-    todos.filter((todo, i) => i !== index);
+  const onPressed = buttonId => {
+    const items = todos.filter(i => i.id !== buttonId);
+    setTodos(items);
   };
 
   const todosList = todos.map((input, index) => (
     <tr key={index}>
       <td>{input.date}</td>
       <td>{input.desc}</td>
-      <button onClick={onPressed}>Delete</button>
+      <td>
+        <button onClick={onPressed}>Delete</button>
+      </td>
     </tr>
   ));
   return (
@@ -50,17 +53,15 @@ function TodoList() {
       </form>
 
       <table>
-        <tbody>
+        <thead>
           <tr>
-            <td>
-              <b>Date</b>
-            </td>
-            <td>
-              <b>Description</b>
-            </td>
+            <th>Date</th>
+            <th>Description</th>
+            <th></th>
           </tr>
-          {todosList}
-        </tbody>
+        </thead>
+
+        <tbody>{todosList}</tbody>
       </table>
     </div>
   );
