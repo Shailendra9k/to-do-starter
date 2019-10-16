@@ -17,8 +17,8 @@ function TodoList() {
     setDesckstate([""]);
   };
 
-  const handleDelete = buttonId => {
-    const filtered = todos.filter((todo, i) => i !== buttonId);
+  const handleDelete = index => {
+    const filtered = todos.filter((todo, i) => i !== index);
     setTodos(filtered);
   };
 
