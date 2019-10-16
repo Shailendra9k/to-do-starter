@@ -13,11 +13,23 @@ function TodoList() {
     setTodos([...todos, desc]);
   };
 
+  const todosList = todos.map((todo, id) => (
+    <tr key={id}>
+      <td>{todo}</td>
+    </tr>
+  ));
+
   return (
-    <form onSubmit={addTodo}>
-      <input type="text" onChange={inputChanged} value={desc} />
-      <input type="submit" value="Add" />
-    </form>
+    <div>
+      <form onSubmit={addTodo}>
+        <input type="text" onChange={inputChanged} value={desc} />
+        <input type="submit" value="Add" />
+      </form>
+
+      <table>
+        <tbody>{todosList}</tbody>
+      </table>
+    </div>
   );
 }
 export default TodoList;
