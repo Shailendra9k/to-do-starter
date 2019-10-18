@@ -5,7 +5,7 @@ function TodoTable(props) {
       <td>{input.date}</td>
       <td>{input.desc}</td>
       <td>
-        <button onClick={() => props.handleDelete(index)}>Delete</button>
+        <button onClick={() => props.onDelete(index)}>Delete</button>
       </td>
     </tr>
   ));

@@ -52,7 +52,7 @@ function TodoList() {
 
         <input type="submit" value="Add" />
       </form>
-      <TodoTable todos={todos} onClick={handleDelete} />
+      <TodoTable todos={todos} onDelete={handleDelete} />
     </div>
   );
 }
