@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import TodoTable from "./TodoTable";
 
 function TodoList() {
   const [descState, setDesckstate] = useState({
@@ -22,15 +23,15 @@ function TodoList() {
     setTodos(filtered);
   };
 
-  const todosList = todos.map((input, index) => (
-    <tr key={index}>
-      <td>{input.date}</td>
-      <td>{input.desc}</td>
-      <td>
-        <button onClick={() => handleDelete(index)}>Delete</button>
-      </td>
-    </tr>
-  ));
+  // const todosList = todos.map((input, index) => (
+  //   <tr key={index}>
+  //     <td>{input.date}</td>
+  //     <td>{input.desc}</td>
+  //     <td>
+  //       <button onClick={() => handleDelete(index)}>Delete</button>
+  //     </td>
+  //   </tr>
+  // ));
   return (
     <div className="App">
       <form onSubmit={addToDo}>
@@ -51,18 +52,7 @@ function TodoList() {
 
         <input type="submit" value="Add" />
       </form>
-
-      <table>
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Description</th>
-            <th></th>
-          </tr>
-        </thead>
-
-        <tbody>{todosList}</tbody>
-      </table>
+      <TodoTable todos={todos} onClick={handleDelete} />
     </div>
   );
 }
